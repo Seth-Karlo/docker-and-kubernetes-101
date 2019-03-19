@@ -11,7 +11,6 @@ spec:
   selector:
     app: wordpress
     tier: mysql
-  clusterIP: None
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -45,3 +44,10 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
