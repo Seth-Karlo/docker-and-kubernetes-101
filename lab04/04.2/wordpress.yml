@@ -42,7 +42,7 @@ spec:
         resources:
           requests:
             memory: "64Mi"
-            cpu: "250m"
+            cpu: "10m"
         ports:
         - containerPort: 80
           name: wordpress
